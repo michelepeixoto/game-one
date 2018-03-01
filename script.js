@@ -1,7 +1,7 @@
 var answer = null, questionField = resultField = "", questionNum = 1, life = 100;
 function start(){//initiates fields and buttons
   var delayTimer = delayResult = delayNextQ = null;//reset delay time between steps
-  questionNum = 5; life = 100; updateLife(0);//reset game
+  questionNum = 1; life = 100; updateLife(0);//reset game
   questionField = document.getElementById("question");//get question field
   resultField = document.getElementById("result");//get result field
   document.getElementById("gameover").style.display = "none";//hide game over div
