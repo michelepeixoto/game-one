@@ -1,0 +1,73 @@
+*{
+  font-family: monospace;
+  text-align: center;
+  color: white;
+}
+
+body {
+  background-color: black;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+p, button, div {
+  font-size: 20px;
+}
+
+.howTo {
+  font-size: 16px;
+}
+
+#game, #gameover {
+  display: none;
+}
+
+#header, button, .life, .timer {
+  background-color: #3f3d3d;
+}
+
+.life {
+  width: 85px;
+  float: left;
+  margin-left: 35%;
+}
+
+.timer {
+  width: 51px;
+  float: right;
+  margin-right: 35%;
+}
+
+.life, .timer {
+  border-style: solid;
+  border-radius: 80px;
+  margin-bottom: 25px;
+}
+
+#life, #timer {
+  float: left;
+  padding: 5px 0 5px 10px;
+}
+
+.life img, .timer img {
+  float: right;
+  margin: 9px;
+}
+
+#hud {
+  margin: 0 25% 0 25%;
+}
+
+#question {
+  clear: both;
+}
