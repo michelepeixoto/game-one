@@ -24,6 +24,10 @@ p, button, div {
   font-size: 20px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .howTo {
   font-size: 16px;
 }
