@@ -28,8 +28,20 @@ p, button, div {
   font-size: 16px;
 }
 
-#game, #gameover {
+#game, #gameover, .hidden {
   display: none;
+}
+
+.visible {
+  display: inline;
+}
+
+#game {
+  padding: 10%;
+}
+
+#hud {
+  margin: 0 25% 0 25%;
 }
 
 #header, button, .life, .timer {
@@ -39,13 +51,13 @@ p, button, div {
 .life {
   width: 85px;
   float: left;
-  margin-left: 35%;
+  margin-left: 10%;
 }
 
 .timer {
   width: 52px;
   float: right;
-  margin-right: 35%;
+  margin-right: 10%;
 }
 
 .life, .timer {
@@ -62,10 +74,6 @@ p, button, div {
 .life img, .timer img {
   float: right;
   margin: 9px;
-}
-
-#hud {
-  margin: 0 25% 0 25%;
 }
 
 #question {
