@@ -8,26 +8,30 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <h1 id="header">G1</h1>
-    <p class="howTo">Choose yes or no before timer runs out or game will restart.</p>
-    <div id="start">
+    <div id="start-screen">
+      <h1 id="header">G1</h1>
+      <p id="rule">Survive until 6am.</p>
+      <p class="howTo">Choose yes or no before timer runs out or game will restart.</p>
+      <div id="start">
       <button onclick="start()">PLAY</button>
+      </div>
     </div>
     <div id="game">
-      <p id="rule">Survive until 6am.</p>
-      <div class="timer"><div id="timer">5</div><img src="hourglass.png" alt="sec"></div>
-      <div class="life"><div id="life">100</div><img src="heart.png" alt="life"></div>
+      <div id="hud">
+        <div class="timer"><div id="timer">5</div><img src="https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fhourglass.png?v=1590552608613" alt="sec"></div>
+        <div class="life"><div id="life">100</div><img src="https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fheart.png?v=1590552727581" alt="life"></div>
+      </div>
       <p id="question"></p>
       <button id="yes">yes</button>
       <button id="no">no</button>
-      <p id="result"></p>
+      <p id="result"></p> 
+      <div>
+        <img id="result-anim" class="hidden" src=" " alt="animation">
+      </div>
     </div>
     <div id="gameover">
       <h3>Game Over</h3>
-      <button onclick="start()">Play again?</button>
-    </div>    
-    <div id="anim">
-      <img src="q5_no.gif" alt="q5 animation">
+      <button onclick="start()">Play again</button>
     </div>
   </body>
 </html>
