@@ -1,11 +1,12 @@
-var answer = null, questionField = resultField = "", questionNum = 1, life = 100;
+var answer = null, questionField = "", resultField = "", resultAnimField = "", questionNum = 1, life = 100;
 function start(){//initiates fields and buttons
-  var delayTimer = delayResult = delayNextQ = null;//reset delay time between steps
+  var delayTimer = null, delayResult = null, delayNextQ = null;//reset delay time between steps
   questionNum = 1; life = 100; updateLife(0);//reset game
   questionField = document.getElementById("question");//get question field
   resultField = document.getElementById("result");//get result field
+  resultAnimField = document.getElementById("result-anim");//get anim field
   document.getElementById("gameover").style.display = "none";//hide game over div
-  document.getElementById("start").style.display = "none";//hide start button
+  document.getElementById("start-screen").style.display = "none";//hide start screen
   document.getElementById("game").style.display = "inline";//show game div
   document.getElementById("yes").addEventListener("click", function(){answer="y";})//click yes
   document.getElementById("no").addEventListener("click", function(){answer="n";})//click no
@@ -34,7 +35,7 @@ function start(){//initiates fields and buttons
       }
       else {  document.getElementById("gameover").style.display = "inline";//end game
            }
-    }, 9000);
+    }, 14000);
   }
 }
 function updateLife(changeLife){
@@ -43,8 +44,10 @@ function updateLife(changeLife){
   console.log("life at "+life);
 }
 function askQuestion(){//changes questionField based on questionNum
-  resultField.innerHTML = "";//reset result before new question
-  question = "";
+  //reset result and animation before new question
+  resultField.innerHTML = "";
+  resultAnimField.className = "hidden";
+  var question = "";
   console.log("asking question "+questionNum);
   switch(questionNum){
     case 1:
@@ -68,8 +71,8 @@ function askQuestion(){//changes questionField based on questionNum
                     }
   questionField.innerHTML = question;
 }
-function getResult(){//changes resultField based on questionNum
-  result = "";
+function getResult(){//changes resultField and resultAnimField based on questionNum
+  var result = "", resultAnim = null;
   console.log("getting result for question "+questionNum);
   if (answer==null){//no input reloads
     location.reload();
@@ -78,48 +81,58 @@ function getResult(){//changes resultField based on questionNum
     case 1:
       if (answer=="y"){
         result = "A lightning bolt strikes you.";
-        updateLife(40);
+        resultAnim = "q1-y";
+        updateLife(50);
       }
       else if (answer=="n"){
         result = "You chicken out and head home.";
+        resultAnim = "q1-n";
       }
       break;
     case 2:
       if (answer=="y"){
         result = "You put the cup noodle in the microwave without any water. It causes the microwave to blow up and a piece of it lands in your arm.";
-        updateLife(30);
+        resultAnim = "q2-y";
+        updateLife(40);
       }
       else if (answer=="n"){
         result = "You stay hungry.";
+        resultAnim = "q2-n";
         updateLife(10);
       }
       break;
     case 3:
       if (answer=="y"){
         result = "You watch it and a whole hour goes by.";
+        resultAnim = "q3-y";
       }
       else if (answer=="n"){
         result = "As soon as you decline you feel a sharp pain in your head.";
+        resultAnim = "q3-n";
         updateLife(15);
       }
       break;
     case 4:
       if (answer=="y"){
         result = "You sleep until 6am.";
+        resultAnim = "q4-y";
         questionNum = 5;
       }
       else if (answer=="n"){
         result = "You stay awake anyway. You feel increasingly tired as the hour goes by.";
+        resultAnim = "q4-n";
         updateLife(15);
       }
       break;
     case 5:
       if (answer=="y"){
         result = "The stranger smiles, then stabs your stomach and runs away.";
+        resultAnim = "q5-y";
         updateLife(life);
       }
       else if (answer=="n"){
         result = "You look through the peep-hole. A stranger stands there holding a knife.";
+        resultAnim = "q5-n";
       }        
       break;
     case 6:
@@ -134,5 +147,8 @@ function getResult(){//changes resultField based on questionNum
       }
       break;
   }
+  // show result and its animation
   resultField.innerHTML = result;
+  resultAnimField.src = resultAnim +".gif";
+  resultAnimField.className = "visible";
 }
