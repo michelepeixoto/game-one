@@ -16,7 +16,7 @@ function start(){
   // get html fields
   questionField = document.getElementById("question");
   resultField = document.getElementById("result");
-  //resultAnimField = document.getElementById("result-anim");
+  resultAnimField = document.getElementById("result-anim");
   // hide unwated fields and show game
   document.getElementById("gameover").style.display = "none";
   document.getElementById("start-screen").style.display = "none";
@@ -72,7 +72,7 @@ function updateLife(changeLife){
 function askQuestion(){
   // reset result and animation before new question
   resultField.innerHTML = "";
-  //resultAnimField.className = "hidden";
+  resultAnimField.className = "hidden";
   var question = "";
   console.log("asking question "+questionNum);
   switch(questionNum){
@@ -181,6 +181,6 @@ function getResult(){
   }
   // show result and its animation
   resultField.innerHTML = result;
-  //resultAnimField.src = resultAnim;
-  //resultAnimField.className = "visible";
+  resultAnimField.src = resultAnim;
+  resultAnimField.className = "visible";
 }
