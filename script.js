@@ -167,7 +167,7 @@ function getResult(){
     // Q 5 is the last one, Q 6 is "play again?"
     case 6:
       if (answer=="y"){
-        location.reload();
+        start();
       }
       else if (answer=="n"){
         // show start button
