@@ -1,22 +1,41 @@
 var answer = null, questionField = "", resultField = "", resultAnimField = "", questionNum = 1, life = 100;
-function start(){//initiates fields and buttons
-  var delayTimer = null, delayResult = null, delayNextQ = null;//reset delay time between steps
-  questionNum = 1; life = 100; updateLife(0);//reset game
-  questionField = document.getElementById("question");//get question field
-  resultField = document.getElementById("result");//get result field
-  resultAnimField = document.getElementById("result-anim");//get anim field
-  document.getElementById("gameover").style.display = "none";//hide game over div
-  document.getElementById("start-screen").style.display = "none";//hide start screen
-  document.getElementById("game").style.display = "inline";//show game div
-  document.getElementById("yes").addEventListener("click", function(){answer="y";})//click yes
-  document.getElementById("no").addEventListener("click", function(){answer="n";})//click no
+// list of animation gifs' URLs (for cleaner code), starting at 1 to match Q#s
+//list for Glitch:
+//var resultAnimN = ["", "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq1-n.gif?v=1590647629699", "", "", "", ""];
+//var resultAnimY = ["", "", "", "", "", ""];
+//list for GitHub:
+var resultAnimN = ["", "q1-n.gif", "q2-n.gif", "q3-n.gif", "q4-n.gif", "q5-n.gif"];
+var resultAnimY = ["", "q1-y.gif", "q2-y.gif", "q3-y.gif", "q4-y.gif", "q5-y.gif"];
+
+// initiates fields and buttons
+function start(){
+  // reset delay time between steps
+  var delayTimer = null, delayResult = null, delayNextQ = null;
+  // reset game
+  questionNum = 1; life = 100; updateLife(0);
+  // get html fields
+  questionField = document.getElementById("question");
+  resultField = document.getElementById("result");
+  resultAnimField = document.getElementById("result-anim");
+  // hide unwated fields and show game
+  document.getElementById("gameover").style.display = "none";
+  document.getElementById("start-screen").style.display = "none";
+  document.getElementById("game").style.display = "inline";
+  // add listener to buttons
+  document.getElementById("yes").addEventListener("click", function(){answer="y";})
+  document.getElementById("no").addEventListener("click", function(){answer="n";})
+  // start game
   console.log("started");
   play();
-  function play(){//runs game process
+
+  //runs game process
+  function play(){
+    // player has 5 seconds to decide
     var timerField = document.getElementById("timer");
-    var time = 5;//player has 5 seconds to decide
+    var time = 5;
     askQuestion();
-    delayTimer = setInterval(function(){//wait 1 second before changing timer
+    // wait 1 second before changing timer
+    delayTimer = setInterval(function(){
       timerField.innerHTML = time;
       console.log("time left: "+time);
       time--;
@@ -24,27 +43,34 @@ function start(){//initiates fields and buttons
         clearInterval(delayTimer);
       }
     }, 1000);
-    delayResult = setTimeout(function(){//wait until timer is out
+    // wait until timer is out
+    delayResult = setTimeout(function(){
       getResult();
       answer = null;
       questionNum++;
     }, 6000);
-    delayNextQ = setTimeout(function(){//give player time to read result
+    // give player time to read result
+    delayNextQ = setTimeout(function(){
+      // if not dead and was not on last Q keep playing
       if (life>0 && questionNum<=6){
-        play();//keep playing
+        play();
       }
-      else {  document.getElementById("gameover").style.display = "inline";//end game
+      // otherwise end game
+      else {  document.getElementById("gameover").style.display = "inline";
            }
     }, 14000);
   }
 }
+
 function updateLife(changeLife){
   life-=changeLife;
   document.getElementById("life").innerHTML=life;
   console.log("life at "+life);
 }
-function askQuestion(){//changes questionField based on questionNum
-  //reset result and animation before new question
+
+// changes questionField based on questionNum
+function askQuestion(){
+  // reset result and animation before new question
   resultField.innerHTML = "";
   resultAnimField.className = "hidden";
   var question = "";
@@ -71,77 +97,83 @@ function askQuestion(){//changes questionField based on questionNum
                     }
   questionField.innerHTML = question;
 }
-function getResult(){//changes resultField and resultAnimField based on questionNum
+
+// changes resultField and resultAnimField based on questionNum
+function getResult(){
   var result = "", resultAnim = null;
   console.log("getting result for question "+questionNum);
-  if (answer==null){//no input reloads
+  // if player didn't answer reload page/end game
+  if (answer==null){
     location.reload();
   }
   switch(questionNum){
     case 1:
       if (answer=="y"){
         result = "A lightning bolt strikes you.";
-        resultAnim = "q1-y";
+        resultAnim = resultAnimY[1];
         updateLife(50);
       }
       else if (answer=="n"){
         result = "You chicken out and head home.";
-        resultAnim = "q1-n";
+        resultAnim = resultAnimN[1];
       }
       break;
     case 2:
       if (answer=="y"){
         result = "You put the cup noodle in the microwave without any water. It causes the microwave to blow up and a piece of it lands in your arm.";
-        resultAnim = "q2-y";
+        resultAnim = resultAnimY[2];
         updateLife(40);
       }
       else if (answer=="n"){
         result = "You stay hungry.";
-        resultAnim = "q2-n";
+        resultAnim = resultAnimN[2];
         updateLife(10);
       }
       break;
     case 3:
       if (answer=="y"){
         result = "You watch it and a whole hour goes by.";
-        resultAnim = "q3-y";
+        resultAnim = resultAnimY[3];
       }
       else if (answer=="n"){
         result = "As soon as you decline you feel a sharp pain in your head.";
-        resultAnim = "q3-n";
+        resultAnim = resultAnimN[3];
         updateLife(15);
       }
       break;
     case 4:
       if (answer=="y"){
         result = "You sleep until 6am.";
-        resultAnim = "q4-y";
+        resultAnim = resultAnimY[4];
         questionNum = 5;
       }
       else if (answer=="n"){
         result = "You stay awake anyway. You feel increasingly tired as the hour goes by.";
-        resultAnim = "q4-n";
+        resultAnim = resultAnimN[4];
         updateLife(15);
       }
       break;
     case 5:
       if (answer=="y"){
         result = "The stranger smiles, then stabs your stomach and runs away.";
-        resultAnim = "q5-y";
+        resultAnim = resultAnimY[5];
         updateLife(life);
       }
       else if (answer=="n"){
         result = "You look through the peep-hole. A stranger stands there holding a knife.";
-        resultAnim = "q5-n";
+        resultAnim = resultAnimN[5];
       }        
       break;
+    // Q 5 is the last one, Q 6 is "play again?"
     case 6:
       if (answer=="y"){
         location.reload();
       }
       else if (answer=="n"){
-        document.getElementById("start").style.display = "inline";//show start button
-        document.getElementById("game").style.display = "none";//hide game div        
+        // show start button
+        document.getElementById("start").style.display = "inline";
+        // hide game div
+        document.getElementById("game").style.display = "none";        
         alert("Thanks for playing!");
         location.reload();
       }
@@ -149,6 +181,6 @@ function getResult(){//changes resultField and resultAnimField based on question
   }
   // show result and its animation
   resultField.innerHTML = result;
-  resultAnimField.src = resultAnim +".gif";
+  resultAnimField.src = resultAnim;
   resultAnimField.className = "visible";
 }
