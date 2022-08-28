@@ -1,11 +1,11 @@
 var answer = null, questionField = "", resultField = "", resultAnimField = "", questionNum = 1, life = 100;
 // list of animation gifs' URLs (for cleaner code), starting at 1 to match Q#s
 //list for Glitch:
-//var resultAnimN = ["", "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq1-n.gif?v=1590647629699", "", "", "", ""];
-//var resultAnimY = ["", "", "", "", "", ""];
+var resultAnimN = ["", "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq1-n.gif?v=1590647629699", "", "", "", ""];
+var resultAnimY = ["", "", "", "", "", "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq5-n.gif?v=1590647634256"];
 //list for GitHub:
-var resultAnimN = ["", "q1-n.gif", "q2-n.gif", "q3-n.gif", "q4-n.gif", "q5-n.gif"];
-var resultAnimY = ["", "q1-y.gif", "q2-y.gif", "q3-y.gif", "q4-y.gif", "q5-y.gif"];
+//var resultAnimN = ["", "q1-n.gif", "q2-n.gif", "q3-n.gif", "q4-n.gif", "q5-n.gif"];
+//var resultAnimY = ["", "q1-y.gif", "q2-y.gif", "q3-y.gif", "q4-y.gif", "q5-y.gif"];
 
 // initiates fields and buttons
 function start(){
@@ -167,7 +167,7 @@ function getResult(){
     // Q 5 is the last one, Q 6 is "play again?"
     case 6:
       if (answer=="y"){
-        start();
+        location.reload();
       }
       else if (answer=="n"){
         // show start button
