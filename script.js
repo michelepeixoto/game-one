@@ -14,16 +14,16 @@ var resultAnimN = [
   "",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q1-n.gif?v=1661677178222",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q2-n.gif?v=1661677178223",
-  "",
-  "",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q3-n.gif?v=1661728241464",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q4-n.gif?v=1661728241464",
   "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq5-n.gif?v=1590647634256",
 ];
 var resultAnimY = [
   "",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q1-y.gif?v=1661677178223",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q2-y.gif?v=1661677178223",
-  "",
-  "",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q3-y.gif?v=1661728241464",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q4-y.gif?v=1661728241464",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q5-y.gif?v=1661669684814",
 ];
 //list for GitHub:
@@ -212,6 +212,8 @@ function getResult() {
       break;
     // Q 5 is the last one, Q 6 is "you won"
     case 6:
+      //hide game otherwise the anim shows
+      document.getElementById("game").style.display = "none";
       location.reload();
       break;
   }
