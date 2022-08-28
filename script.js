@@ -18,6 +18,7 @@ var resultAnimN = [
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q4-n.gif?v=1661728241464",
   "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq5-n.gif?v=1590647634256",
 ];
+
 var resultAnimY = [
   "",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q1-y.gif?v=1661677178223",
@@ -26,9 +27,12 @@ var resultAnimY = [
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q4-y.gif?v=1661728241464",
   "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q5-y.gif?v=1661669684814",
 ];
+
+var gameWonAnim = "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/gameWon.gif?v=1661730032695";
 //list for GitHub:
 //var resultAnimN = ["", "q1-n.gif", "q2-n.gif", "q3-n.gif", "q4-n.gif", "q5-n.gif"];
 //var resultAnimY = ["", "q1-y.gif", "q2-y.gif", "q3-y.gif", "q4-y.gif", "q5-y.gif"];
+//var gameWonAnim = "gameWon.gif";
 
 // initiates fields and buttons
 function start() {
@@ -135,9 +139,13 @@ function askQuestion() {
       break;
     case 6:
       question = "6am: You survived. Thanks for playing!";
-      // hide the answer buttons and anim
+      //show game won anim
+      resultField.innerHTML = "";
+      resultAnimField.src = gameWonAnim;
+      resultAnimField.className = "visible";
+      // hide the answer buttons
       document.getElementById("answer-buttons").style.display = "none";
-      document.getElementById("result").style.display = "none";
+      //document.getElementById("result").style.display = "none";
       break;
   }
   questionField.innerHTML = question;
