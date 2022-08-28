@@ -125,7 +125,7 @@ function askQuestion() {
       break;
     case 2:
       question =
-        "2am: Arrived at home. You feel hungry. Will you make a cup noodle?";
+        "2am: Arrived at home. You feel hungry. Will you make a noodle cup?";
       break;
     case 3:
       question =
@@ -176,7 +176,7 @@ function getResult() {
     case 2:
       if (answer == "y") {
         result =
-          "You put the cup noodle in the microwave without any water. It causes the microwave to blow up and a piece of it lands in your arm.";
+          "You put the noodle cup in the microwave without any water. It causes the microwave to blow up and a piece of it lands in your arm.";
         resultAnim = resultAnimY[2];
         updateLife(life - 40);
       } else if (answer == "n") {
@@ -209,12 +209,12 @@ function getResult() {
       break;
     case 5:
       if (answer == "y") {
-        result = "The stranger smiles, then stabs your stomach and runs away.";
+        result = "The stranger at the door smiles, then stabs your stomach and runs away.";
         resultAnim = resultAnimY[5];
         updateLife(life - life);
       } else if (answer == "n") {
         result =
-          "You look through the peep-hole. A stranger stands there holding a knife.";
+          "You look through the peep-hole. A stranger is standing there holding a knife.";
         resultAnim = resultAnimN[5];
       }
       break;
