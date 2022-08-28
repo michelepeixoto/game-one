@@ -26,6 +26,23 @@ p, button, div {
 
 button {
   cursor: pointer;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  padding: 10px;
+  
+}
+
+button:hover{
+  background-color: #8E8E8E;
+}
+
+.answer-button{
+  width: 80px;
+}
+
+.answer-button.selected{
+  background-color: #8E8E8E;
 }
 
 .howTo {
