@@ -115,7 +115,7 @@ function getResult(){
       }
       else if (answer=="n"){
         result = "You chicken out and head home.";
-        resultAnim = "q1-n.gif";
+        resultAnim = resultAnimN[1];
       }
       break;
     case 2:
