@@ -20,6 +20,10 @@ h3 {
   font-size: 30px;
 }
 
+#header, button, .life, .timer {
+  background-color: #3f3d3d;
+}
+
 p, button, div {
   font-size: 20px;
 }
@@ -37,8 +41,14 @@ button:hover{
   background-color: #8E8E8E;
 }
 
+#answer-buttons{
+  margin: 0 25% 0 25%;
+}
+
 .answer-button{
+  float: left;
   width: 80px;
+  margin-right: 20px;
 }
 
 .answer-button.selected{
@@ -63,10 +73,6 @@ button:hover{
 
 #hud {
   margin: 0 25% 0 25%;
-}
-
-#header, button, .life, .timer {
-  background-color: #3f3d3d;
 }
 
 .life {
@@ -97,6 +103,10 @@ button:hover{
   margin: 9px;
 }
 
-#question {
+#question, #result, #gameover {
   clear: both;
+}
+
+#result{
+  margin-top: 100px;
 }
