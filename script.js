@@ -12,19 +12,19 @@ var answer = null,
 //list for Glitch:
 var resultAnimN = [
   "",
-  "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq1-n.gif?v=1590647629699",
-  "",
-  "",
-  "",
-  "",
-];
-var resultAnimY = [
-  "",
-  "",
-  "",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q1-n.gif?v=1661677178222",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q2-n.gif?v=1661677178223",
   "",
   "",
   "https://cdn.glitch.com/87a68849-ba2b-400e-b00a-910df7e25b62%2Fq5-n.gif?v=1590647634256",
+];
+var resultAnimY = [
+  "",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q1-y.gif?v=1661677178223",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q2-y.gif?v=1661677178223",
+  "",
+  "",
+  "https://cdn.glitch.global/87a68849-ba2b-400e-b00a-910df7e25b62/q5-y.gif?v=1661669684814",
 ];
 //list for GitHub:
 //var resultAnimN = ["", "q1-n.gif", "q2-n.gif", "q3-n.gif", "q4-n.gif", "q5-n.gif"];
